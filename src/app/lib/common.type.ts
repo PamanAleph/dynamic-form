@@ -24,3 +24,13 @@ type DataForm = {
   createdAt: string;
   updatedAt: string;
 };
+
+interface FormSectionProps {
+  section: {
+    sectionID: string;
+    sectionName: string;
+    questions: Question[];
+  };
+  selectedOption: string | null;
+  handleRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
