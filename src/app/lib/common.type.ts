@@ -17,7 +17,7 @@ type Section = {
 };
 
 type DataForm = {
-  id: string;
+  id: number;
   formName: string;
   description: string;
   sections: Section[];
@@ -27,7 +27,7 @@ type DataForm = {
 
 interface FormSectionProps {
   section: {
-    sectionID: string;
+    sectionID: number;
     sectionName: string;
     questions: Question[];
   };

@@ -26,7 +26,7 @@ export const formData = [
     description: "Assessment Form",
     sections: [
       {
-        sectionID: "section1",
+        sectionID: 1,
         sectionName: "Personal Information",
         questions: [
           {
@@ -47,7 +47,7 @@ export const formData = [
         ],
       },
       {
-        sectionID: "section2",
+        sectionID: 2,
         sectionName: "Preferences",
         questions: [
           {

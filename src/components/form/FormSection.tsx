@@ -11,11 +11,12 @@ export default function FormSection({
     handleRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   ) {
     const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = Number(e.target.value);
-        if (value < 0) {
-          e.target.value = '0';
-        }
-      };
+      const value = Number(e.target.value);
+      if (value < 0) {
+        e.target.value = "0";
+      }
+    };
+
     switch (question.questionType) {
       case "text":
         return (
@@ -80,12 +81,15 @@ export default function FormSection({
       <h3 className="text-xl font-medium text-gray-700 mb-3">
         {section.sectionName}
       </h3>
-      {section.questions.map((question) => (
+      {section.questions.map((question, index) => (
         <div key={question.questionID} className="mb-4">
           <label
             htmlFor={question.questionID}
             className="block text-sm font-medium text-gray-700 mb-2"
           >
+            <span className="font-semibold">
+              {section.sectionID}.{index + 1}
+            </span>{" "}
             {question.questionText}
           </label>
           {renderInput(question, selectedOption, handleRadioChange)}
