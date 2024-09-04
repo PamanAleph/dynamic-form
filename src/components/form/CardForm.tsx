@@ -12,7 +12,7 @@ export default function CardForm() {
   };
 
   return (
-    <div className="w-full p-4">
+    <form className="w-full p-4">
       {formData.map((form) => (
         <div key={form.id}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
@@ -32,6 +32,6 @@ export default function CardForm() {
       <button className="mt-6 w-full bg-blue-600 text-white py-2 rounded-md shadow hover:bg-blue-700 transition duration-150">
         Submit
       </button>
-    </div>
+    </form>
   );
 }
