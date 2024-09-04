@@ -7,6 +7,7 @@ We hope this message finds you well. As part of President University commitment 
 The Alumni Tracer Study is an important initiative that helps us gather valuable information about your post- graduation experiences and achievements. Your input will provide us with valuable insights that will contribute to enhancing our programs and services for now on and in the future.
 
 The survey will take approximately 15 minutes to complete and your responses will remain confidential.
+
 If you have any questions or require further assistance, please do not hesitate to contact Arya Ferdinan at WA 0822-9973-1571, Email: alumni@president.ac.id.
 
 Thank you for your continued support and commitment to President University.
