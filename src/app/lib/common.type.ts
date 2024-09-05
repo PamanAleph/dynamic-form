@@ -1,17 +1,17 @@
 type Option = {
-  optionID: string;
+  optionID: number;
   optionText: string;
 };
 
 type Question = {
-  questionID: string;
+  questionID: number;
   questionText: string;
-  questionType: string;
+  questionType: "text" | "email" | "number" | "radio";
   options?: Option[];
 };
 
 type Section = {
-  sectionID: string;
+  sectionID: number;
   sectionName: string;
   questions: Question[];
 };
@@ -26,11 +26,11 @@ type DataForm = {
 };
 
 interface FormSectionProps {
-  section: {
-    sectionID: number;
-    sectionName: string;
-    questions: Question[];
-  };
-  selectedOption: string | null;
-  handleRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  section: Section;
+  selectedOptions: { [key: number]: string | null };
+  handleRadioChange: (questionID: number, value: string) => void;
+  otherInputs: { [key: number]: string };
+  formValues: { [key: number]: string | number };
+  handleOtherInputChange: (questionID: number, value: string) => void;
+  handleInputChange: (questionID: number, value: string | number) => void;
 }

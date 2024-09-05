@@ -2,37 +2,36 @@ import React from "react";
 
 export default function FormSection({
   section,
-  selectedOption,
+  formValues,
+  selectedOptions,
   handleRadioChange,
+  otherInputs,
+  handleOtherInputChange,
+  handleInputChange,
 }: FormSectionProps) {
-  function renderInput(
-    question: Question,
-    selectedOption: string | null,
-    handleRadioChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  ) {
+  function renderInput(question: Question) {
     const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = Number(e.target.value);
       if (value < 0) {
         e.target.value = "0";
       }
+      handleInputChange(question.questionID, value);
+    };
+
+    const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      handleInputChange(question.questionID, e.target.value);
     };
 
     switch (question.questionType) {
       case "text":
-        return (
-          <input
-            type="text"
-            id={question.questionID}
-            name={question.questionID}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-          />
-        );
       case "email":
         return (
           <input
-            type="email"
-            id={question.questionID}
-            name={question.questionID}
+            type={question.questionType}
+            id={question.questionID.toString()}
+            name={question.questionID.toString()}
+            value={formValues[question.questionID] || ""}
+            onChange={handleTextChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />
         );
@@ -40,9 +39,10 @@ export default function FormSection({
         return (
           <input
             type="number"
-            id={question.questionID}
-            name={question.questionID}
-            min={"0"}
+            id={question.questionID.toString()}
+            name={question.questionID.toString()}
+            min="0"
+            value={formValues[question.questionID] || ""}
             onChange={handleNumberChange}
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />
@@ -54,18 +54,21 @@ export default function FormSection({
               <label key={option.optionID} className="inline-flex items-center">
                 <input
                   type="radio"
-                  name={question.questionID}
+                  name={question.questionID.toString()}
                   value={option.optionText}
                   className="form-radio text-blue-600"
-                  onChange={handleRadioChange}
+                  checked={selectedOptions[question.questionID] === option.optionText}
+                  onChange={(e) => handleRadioChange(question.questionID, e.target.value)}
                 />
                 <span className="ml-2 text-gray-700">{option.optionText}</span>
               </label>
             ))}
-            {selectedOption === "Other" && (
+            {selectedOptions[question.questionID] === "Other" && (
               <input
                 type="text"
                 placeholder="Please specify"
+                value={otherInputs[question.questionID] || ""}
+                onChange={(e) => handleOtherInputChange(question.questionID, e.target.value)}
                 className="mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
             )}
@@ -84,7 +87,7 @@ export default function FormSection({
       {section.questions.map((question, index) => (
         <div key={question.questionID} className="mb-4">
           <label
-            htmlFor={question.questionID}
+            htmlFor={question.questionID.toString()}
             className="block text-sm font-medium text-gray-700 mb-2"
           >
             <span className="font-semibold">
@@ -92,7 +95,7 @@ export default function FormSection({
             </span>{" "}
             {question.questionText}
           </label>
-          {renderInput(question, selectedOption, handleRadioChange)}
+          {renderInput(question)}
         </div>
       ))}
     </div>

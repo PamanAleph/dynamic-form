@@ -22,7 +22,7 @@ WA: 0813 1991 9369
 
 export const formData = [
   {
-    id: "form1",
+    id: 1,
     formName: "Survey Form",
     description: "Assessment Form",
     sections: [
@@ -31,17 +31,17 @@ export const formData = [
         sectionName: "Personal Information",
         questions: [
           {
-            questionID: "q1",
+            questionID: 1,
             questionText: "What is your full name?",
             questionType: "text",
           },
           {
-            questionID: "q2",
+            questionID: 2,
             questionText: "What is your email address?",
             questionType: "email",
           },
           {
-            questionID: "q3",
+            questionID: 3,
             questionText: "What is your phone number?",
             questionType: "number",
           },
@@ -52,13 +52,29 @@ export const formData = [
         sectionName: "Preferences",
         questions: [
           {
-            questionID: "q4",
+            questionID: 4,
             questionText: "What is your preferred contact method?",
             questionType: "radio",
             options: [
-              { optionID: "o1", optionText: "Email" },
-              { optionID: "o2", optionText: "Phone" },
-              { optionID: "o3", optionText: "Other" },
+              { optionID: 1, optionText: "Email" },
+              { optionID: 2, optionText: "Phone" },
+              { optionID: 3, optionText: "Other" },
+            ],
+          },
+        ],
+      },
+      {
+        sectionID: 3,
+        sectionName: "Preferences",
+        questions: [
+          {
+            questionID: 5,
+            questionText: "tesdasda",
+            questionType: "radio",
+            options: [
+              { optionID: 1, optionText: "Email" },
+              { optionID: 2, optionText: "Phone" },
+              { optionID: 3, optionText: "Other" },
             ],
           },
         ],
