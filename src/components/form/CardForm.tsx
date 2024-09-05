@@ -44,7 +44,7 @@ export default function CardForm() {
       {formData.map((form) => (
         <div key={form.id}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            {form.formName}
+           {form.formName}
           </h2>
           <p className="text-gray-600 mb-6">{form.description}</p>
           {form.sections.map((section) => (

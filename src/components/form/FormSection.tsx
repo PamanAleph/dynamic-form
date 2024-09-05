@@ -82,7 +82,7 @@ export default function FormSection({
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-6">
       <h3 className="text-xl font-medium text-gray-700 mb-3">
-        {section.sectionName}
+       {section.sectionID}. {section.sectionName}
       </h3>
       {section.questions.map((question, index) => (
         <div key={question.questionID} className="mb-4">
