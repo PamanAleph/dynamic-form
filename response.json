@@ -1,0 +1,79 @@
+{
+  "formID": 1,
+  "formName": "Survey Form",
+  "formDescription": "This is a sample survey form",
+  "sections": [
+    {
+      "sectionID": 1,
+      "sectionName": "Section 1",
+      "questions": [
+        {
+          "id": 1,
+          "num": "1",
+          "question_text": "Question 1",
+          "answer_type": "text",
+          "answer_var": "",
+          "parent_id": null,
+          "display": true
+        },
+        {
+          "id": 2,
+          "num": "1.1",
+          "question_text": "Question 1.1",
+          "answer_type": "radio",
+          "answer_var": {
+            "1": "Option 1",
+            "2": "Option 2"
+          },
+          "parent_id": 1,
+          "display": true
+        },
+        {
+          "id": 3,
+          "num": "1.1.1",
+          "question_text": "Question 1.1.1",
+          "answer_type": "text",
+          "answer_var": "",
+          "parent_id": 2,
+          "display": false
+        }
+      ]
+    },
+    {
+        "sectionID": 2,
+        "sectionName": "Section 2",
+        "questions": [
+            {
+            "id": 4,
+            "num": "2",
+            "question_text": "Question 2",
+            "answer_type": "text",
+            "answer_var": "",
+            "parent_id": null,
+            "display": true
+            },
+            {
+            "id": 5,
+            "num": "2.1",
+            "question_text": "Question 2.1",
+            "answer_type": "radio",
+            "answer_var": {
+                "1": "Option 1",
+                "2": "Option 2"
+            },
+            "parent_id": 4,
+            "display": true
+            },
+            {
+            "id": 6,
+            "num": "2.1.1",
+            "question_text": "Question 2.1.1",
+            "answer_type": "text",
+            "answer_var": "",
+            "parent_id": 5,
+            "display": false
+            }
+        ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import CardGreetings from "@/components/CardGreetings";
-import CardForm from "@/components/form/CardForm";
+import CardForm from "@/components/form/FormCard";
 import React from "react";
 import { greetings } from "@/app/lib/data";
 import Image from "next/image";

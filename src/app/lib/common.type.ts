@@ -1,36 +1,20 @@
-type Option = {
-  optionID: number;
-  optionText: string;
-};
-
-type Question = {
-  questionID: number;
-  questionText: string;
-  questionType: "text" | "email" | "number" | "radio";
-  options?: Option[];
-};
-
-type Section = {
-  sectionID: number;
-  sectionName: string;
-  questions: Question[];
-};
-
-type DataForm = {
+export type Question = {
   id: number;
-  formName: string;
-  description: string;
-  sections: Section[];
-  createdAt: string;
-  updatedAt: string;
+  section_id: number;
+  require: boolean;
+  question: string;
+  var_name: string;
+  answer_type: "text" | "email" | "number" | "radio" | "checkbox" | null;
+  answer_id: number | null;
+  data_type: "root_question" | "sub_question";
+  children_value?: {
+    id: number[]; 
+  } | null;
 };
 
-interface FormSectionProps {
-  section: Section;
-  selectedOptions: { [key: number]: string | null };
-  handleRadioChange: (questionID: number, value: string) => void;
-  otherInputs: { [key: number]: string };
-  formValues: { [key: number]: string | number };
-  handleOtherInputChange: (questionID: number, value: string) => void;
-  handleInputChange: (questionID: number, value: string | number) => void;
+export interface FormSectionProps {
+  question: Question; 
+  numberPrefix: string; 
+  formValues: { [key: number]: string | number }; 
+  handleInputChange: (questionID: number, value: string | number) => void; 
 }

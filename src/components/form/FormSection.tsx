@@ -1,37 +1,20 @@
 import React from "react";
 
 export default function FormSection({
-  section,
+  question,
+  numberPrefix,
   formValues,
-  selectedOptions,
-  handleRadioChange,
-  otherInputs,
-  handleOtherInputChange,
   handleInputChange,
-}: FormSectionProps) {
-  function renderInput(question: Question) {
-    const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = Number(e.target.value);
-      if (value < 0) {
-        e.target.value = "0";
-      }
-      handleInputChange(question.questionID, value);
-    };
-
-    const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      handleInputChange(question.questionID, e.target.value);
-    };
-
-    switch (question.questionType) {
+}: any) {
+  const renderInput = () => {
+    switch (question.answer_type) {
       case "text":
       case "email":
         return (
           <input
-            type={question.questionType}
-            id={question.questionID.toString()}
-            name={question.questionID.toString()}
-            value={formValues[question.questionID] || ""}
-            onChange={handleTextChange}
+            type={question.answer_type}
+            value={formValues[question.id] || ""}
+            onChange={(e) => handleInputChange(question.id, e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />
         );
@@ -39,65 +22,65 @@ export default function FormSection({
         return (
           <input
             type="number"
-            id={question.questionID.toString()}
-            name={question.questionID.toString()}
-            min="0"
-            value={formValues[question.questionID] || ""}
-            onChange={handleNumberChange}
+            value={formValues[question.id] || ""}
+            onChange={(e) =>
+              handleInputChange(question.id, Number(e.target.value))
+            }
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
           />
         );
       case "radio":
         return (
           <div className="flex flex-col space-y-2">
-            {question.options?.map((option) => (
-              <label key={option.optionID} className="inline-flex items-center">
+            {Object.entries(question.answer_var).map(([key, value]) => (
+              <label key={key} className="inline-flex items-center">
                 <input
                   type="radio"
-                  name={question.questionID.toString()}
-                  value={option.optionText}
+                  value={key}
+                  checked={formValues[question.id] === key}
+                  onChange={(e) =>
+                    handleInputChange(question.id, e.target.value)
+                  }
                   className="form-radio text-blue-600"
-                  checked={selectedOptions[question.questionID] === option.optionText}
-                  onChange={(e) => handleRadioChange(question.questionID, e.target.value)}
                 />
-                <span className="ml-2 text-gray-700">{option.optionText}</span>
+                <span className="ml-2 text-gray-700">
+                  {value as React.ReactNode}
+                </span>
               </label>
             ))}
-            {selectedOptions[question.questionID] === "Other" && (
-              <input
-                type="text"
-                placeholder="Please specify"
-                value={otherInputs[question.questionID] || ""}
-                onChange={(e) => handleOtherInputChange(question.questionID, e.target.value)}
-                className="mt-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-              />
-            )}
+          </div>
+        );
+      case "checkbox":
+        return (
+          <div className="flex flex-col space-y-2">
+            {Object.entries(question.answer_var).map(([key, value]) => (
+              <label key={key} className="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  value={key}
+                  onChange={(e) =>
+                    handleInputChange(question.id, e.target.value)
+                  }
+                  className="form-checkbox text-blue-600"
+                />
+                <span className="ml-2 text-gray-700">
+                  {value as React.ReactNode}
+                </span>
+              </label>
+            ))}
           </div>
         );
       default:
         return null;
     }
-  }
+  };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h3 className="text-xl font-medium text-gray-700 mb-3">
-       {section.sectionID}. {section.sectionName}
-      </h3>
-      {section.questions.map((question, index) => (
-        <div key={question.questionID} className="mb-4">
-          <label
-            htmlFor={question.questionID.toString()}
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            <span className="font-semibold">
-              {section.sectionID}.{index + 1}
-            </span>{" "}
-            {question.questionText}
-          </label>
-          {renderInput(question)}
-        </div>
-      ))}
+    <div className="mb-4">
+      <label className="block text-md font-medium text-gray-700 mb-2 text-justify">
+        {numberPrefix}. {question.question}
+      </label>
+      {renderInput()}
     </div>
   );
 }

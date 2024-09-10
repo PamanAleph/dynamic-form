@@ -20,67 +20,155 @@ WA: 0813 1991 9369
 `,
 };
 
-export const formData = [
+export const multiSelectData = [
   {
     id: 1,
-    formName: "Survey Form",
-    description: "Assessment Form",
-    sections: [
-      {
-        sectionID: 1,
-        sectionName: "Personal Information",
-        questions: [
-          {
-            questionID: 1,
-            questionText: "What is your full name?",
-            questionType: "text",
-          },
-          {
-            questionID: 2,
-            questionText: "What is your email address?",
-            questionType: "email",
-          },
-          {
-            questionID: 3,
-            questionText: "What is your phone number?",
-            questionType: "number",
-          },
-        ],
-      },
-      {
-        sectionID: 2,
-        sectionName: "Preferences",
-        questions: [
-          {
-            questionID: 4,
-            questionText: "What is your preferred contact method?",
-            questionType: "radio",
-            options: [
-              { optionID: 1, optionText: "Email" },
-              { optionID: 2, optionText: "Phone" },
-              { optionID: 3, optionText: "Other" },
-            ],
-          },
-        ],
-      },
-      {
-        sectionID: 3,
-        sectionName: "Preferences",
-        questions: [
-          {
-            questionID: 5,
-            questionText: "tesdasda",
-            questionType: "radio",
-            options: [
-              { optionID: 1, optionText: "Email" },
-              { optionID: 2, optionText: "Phone" },
-              { optionID: 3, optionText: "Other" },
-            ],
-          },
-        ],
-      },
-    ],
-    createdAt: "2024-09-03T00:00:00Z",
-    updatedAt: "2024-09-03T00:00:00Z",
+    options: {
+      1: "Yes",
+      2: "No",
+    },
+  },
+  {
+    id: 2,
+    options: {
+      1: "Option 1",
+      2: "Option 2",
+      3: "Option 3",
+      4: "Option 4",
+      5: "Option 5",
+    },
+  },
+  {
+    id: 3,
+    options: {
+      1: "Option 1",
+      2: "Option 2",
+      3: "Option 3",
+      4: "Option 4",
+      5: "Option 5",
+    },
+  },
+];
+
+export const sectionDataLAMTEKNIK = [
+  {
+    section_id: 1,
+    section_name: "Bagian A: Daftar DTPS",
+    section_description:
+      "Tuliskan daftar DTPS pada tahun 2023; DTPS = dosen tetap President University ber-NIDN dan menjalankan fungsi pembinaan Prodi, seperti mengajar mata kuliah inti Prodi, melakukan pembimbingan Tugas Akhir, melakukan penelitian, atau pengabdian kepada masyarakat di Prodi",
+    data_type: "section",
+  },
+  {
+    section_id: 2,
+    section_name: "Bagian B: Capaian IKU/IKT",
+    section_description: null,
+    data_type: "section",
+  },
+];
+
+export const questionData = [
+  {
+    id: 1,
+    section_id: 1,
+    require: false,
+    question:
+      "Tuliskan nama dosen tetap President University ber-NIDN dan menjalankan fungsi pembinaan Prodi, seperti mengajar mata kuliah inti Prodi, melakukan pembimbingan Tugas Akhir, melakukan penelitian, atau pengabdian kepada masyarakat di Prodi",
+    var_name: "q_001",
+    answer_type: null,
+    answer_id: null,
+    data_type: "root_question",
+  },
+  {
+    id: 2,
+    section_id: 2,
+    require: false,
+    children_value: {
+      id: [3, 4, 5, 6],
+    },
+    question: "Peningkatan Mutu Lulusan dan Kepuasan Pengguna Lulusan",
+    var_name: "q_001",
+    answer_type: null,
+    answer_id: null,
+    data_type: "root_question",
+  },
+  {
+    id: 3,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Rata-rata IPK lulusan (IPK)",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 4,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Rata-rata masa studi Lulusan (MS)",
+    var_name: "q_002",
+    answer_type: "text",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 5,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Tingkat kepuasan pengguna lulusan",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 6,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question:
+      "Prosentase lulusan yang memenuhi kriteria kemampuan Bahasa Inggris yang ditetapkan Univ. Presiden",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 7,
+    section_id: 2,
+    require: false,
+    children_value: {
+      id: [8, 9],
+    },
+    question: "tesst 2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "root_question",
+  },
+  {
+    id: 8,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 9,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
   },
 ];
