@@ -3,5 +3,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="bg-[#FBFBFB] scroll-smooth text-black">{children}</div>;
+  return (
+    <div className="bg-[#FBFBFB] scroll-smooth text-black">{children}</div>
+  );
 }

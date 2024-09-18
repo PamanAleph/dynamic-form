@@ -7,7 +7,7 @@ import PULOGO from "@/assets/pu_logo.jpg";
 
 export default function page() {
   return (
-    <section className="flex flex-col max-w-3xl justify-center items-center  mx-auto gap-4 px-4 sm:px-0">
+    <section className="flex flex-col max-w-3xl justify-center items-center mx-auto gap-4 px-4 sm:px-0">
       <div className=" justify-center items-center ">
         <Image
           src={PULOGO}

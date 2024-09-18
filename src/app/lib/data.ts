@@ -50,9 +50,52 @@ export const multiSelectData = [
   },
 ];
 
-export const sectionDataLAMTEKNIK = [
+export const major=[
+  {
+    major_id: 1,
+    major_name: "Management",
+  },
+  {
+    major_id: 2,
+    major_name: "Business Administration",
+  },
+  {
+    major_id: 3,
+    major_name: "Accounting",
+  },
+  {
+    major_id: 4,
+    major_name: "MM Tech",
+  },
+]
+
+export const formType = [
+  {
+    form_id: 1,
+    form_type: "LAMEMBA",
+    form_description: "MGT, BA, ACC",
+  },
+  {
+    form_id: 2,
+    form_type: "LAMEMBA",
+    form_description: "MMTECH",
+  },
+  {
+    form_id: 3,
+    form_type: "LAMTEKNIK",
+    form_description: "FACULTY OF ENGINEERING",
+  },
+  {
+    form_id: 4,
+    form_type: "LAMSAMA",
+    form_description: "ACT",
+  },
+]
+
+export const sectionData = [
   {
     section_id: 1,
+    form_id: 3,
     section_name: "Bagian A: Daftar DTPS",
     section_description:
       "Tuliskan daftar DTPS pada tahun 2023; DTPS = dosen tetap President University ber-NIDN dan menjalankan fungsi pembinaan Prodi, seperti mengajar mata kuliah inti Prodi, melakukan pembimbingan Tugas Akhir, melakukan penelitian, atau pengabdian kepada masyarakat di Prodi",
@@ -60,7 +103,15 @@ export const sectionDataLAMTEKNIK = [
   },
   {
     section_id: 2,
-    section_name: "Bagian B: Capaian IKU/IKT",
+    form_id: 3,
+    section_name: "Bagian B: Capaian IKU",
+    section_description: null,
+    data_type: "section",
+  },
+  {
+    section_id: 3,
+    form_id: 2,
+    section_name: "Bagian sdasd",
     section_description: null,
     data_type: "section",
   },
@@ -141,11 +192,11 @@ export const questionData = [
     section_id: 2,
     require: false,
     children_value: {
-      id: [8, 9],
+      id: [8, 9, 10],
     },
     question: "tesst 2",
     var_name: "q_003",
-    answer_type: "number",
+    answer_type: null,
     answer_id: 456,
     data_type: "root_question",
   },
@@ -162,6 +213,132 @@ export const questionData = [
   },
   {
     id: 9,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 10,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 11,
+    section_id: 1,
+    require: false,
+    question:
+      "Tuliskan nama dosen tetap President University ber-NIDN dan menjalankan fungsi pembinaan Prodi, seperti mengajar mata kuliah inti Prodi, melakukan pembimbingan Tugas Akhir, melakukan penelitian, atau pengabdian kepada masyarakat di Prodi",
+    var_name: "q_001",
+    answer_type: null,
+    answer_id: null,
+    data_type: "root_question",
+  },
+  {
+    id: 12,
+    section_id: 2,
+    require: false,
+    children_value: {
+      id: [13, 14, 15, 16],
+    },
+    question: "Peningkatan Mutu Lulusan dan Kepuasan Pengguna Lulusan",
+    var_name: "q_001",
+    answer_type: null,
+    answer_id: null,
+    data_type: "root_question",
+  },
+  {
+    id: 13,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Rata-rata IPK lulusan (IPK)",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 14,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Rata-rata masa studi Lulusan (MS)",
+    var_name: "q_002",
+    answer_type: "text",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 15,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "Tingkat kepuasan pengguna lulusan",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 16,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question:
+      "Prosentase lulusan yang memenuhi kriteria kemampuan Bahasa Inggris yang ditetapkan Univ. Presiden",
+    var_name: "q_002",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 17,
+    section_id: 2,
+    require: false,
+    children_value: {
+      id: [18, 19, 20],
+    },
+    question: "tesst 2",
+    var_name: "q_003",
+    answer_type: null,
+    answer_id: 456,
+    data_type: "root_question",
+  },
+  {
+    id: 18,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 19,
+    section_id: 2,
+    require: true,
+    children_value: null,
+    question: "test2",
+    var_name: "q_003",
+    answer_type: "number",
+    answer_id: 456,
+    data_type: "sub_question",
+  },
+  {
+    id: 20,
     section_id: 2,
     require: true,
     children_value: null,
